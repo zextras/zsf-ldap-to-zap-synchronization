@@ -204,7 +204,7 @@ if config['actions']['create']:
                 logging.info(f'Adding account {name} to distribution list {distribution_list_id}')
 
                 zap.update_distribution_list(distribution_list_id, {
-                    'membersToAdd': [created_account['id']]
+                    'membersToAdd': [name]
                 })
 
                 time.sleep(2)
