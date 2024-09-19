@@ -1,0 +1,43 @@
+{
+  "actions": {
+    "close": true,
+    "create": true,
+    "update": true
+  },
+  "addNewAccountsToDistributionLists": [],
+  "attributesMapping": {
+      "company": "company",
+      "description": "description",
+      "displayName": "displayName",
+      "givenName": "givenName",
+      "homePhone": "homePhone",
+      "mobile": "mobile",
+      "pager": "pager",
+      "sn": "sn",
+      "telephoneNumber": "telephoneNumber",
+      "title": "title",
+      "zimbraAccountStatus": true,
+      "zimbraMailDeliveryAddress": "mail"
+  },
+  "domain": "",
+  "exclude": [],
+  "ldap": {
+    "baseDN": "",
+    "filter": "",
+    "host": "",
+    "port": 389,
+    "user": "",
+    "password": "",
+    "ssl": false,
+    "tls": false
+  },
+  "zap": {
+    "apiKey": {
+      "id": "",
+      "secret": ""
+    },
+    "host": "",
+    "port": 443,
+    "secure": true
+  }
+}
