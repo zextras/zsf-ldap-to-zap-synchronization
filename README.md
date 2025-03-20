@@ -13,7 +13,7 @@ If you want to install the dependency manually, clone the ZAP client repository
 Also, install the `ldap3` Python package:
 
 ```shell
-pipi install ldap3
+pip install ldap3
 ```
 
 # Usage
