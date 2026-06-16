@@ -36,9 +36,11 @@ def get_zap_accounts(client: zap_client.Client) -> list[dict]:
 
 def transform_ldap_accounts(ldap_accounts: list[dict], zap_accounts: dict[str, dict]):
     transformed_accounts = {}
+    dest_accounts = [z.lower() for z in zap_accounts]
 
     for name, attributes in ldap_accounts.items():
-        transformed_accounts[name] = {}
+        lower_name = name.lower()
+        transformed_accounts[lower_name] = {}
 
         for attribute_k, attribute_v in attributes.items():
             if attribute_k in [
@@ -65,7 +67,7 @@ def transform_ldap_accounts(ldap_accounts: list[dict], zap_accounts: dict[str, d
                                         mapping_k: mapping_v_v_v
                                     })
 
-        if name in zap_accounts and 'id' in zap_accounts[name]:
+        if name in dest_accounts and 'id' in zap_accounts[name]:
             transformed_accounts[name].update({'id': zap_accounts[name]['id']})
 
     return transformed_accounts
