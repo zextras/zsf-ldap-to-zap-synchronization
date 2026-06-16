@@ -122,8 +122,8 @@ ldap_client = connect_ldap_client(
 
 # Get the LDAP accounts.
 ldap_accounts = {
-    name: attributes for name, attributes in ldap_client.getLdap().items()
-    if name not in config['exclude']
+    name.lower(): attributes for name, attributes in ldap_client.getLdap().items()
+    if name.lower() not in config['exclude']
 }
 
 # Create the ZAP client.
@@ -159,7 +159,7 @@ transformed_ldap_accounts = transform_ldap_accounts(ldap_accounts, zap_accounts)
 # Calculate the accounts to create, update and close.
 accounts_to_create = {
     name: attributes for name, attributes in transformed_ldap_accounts.items()
-    if name not in zap_accounts
+    if name not in [z.lower() for z in zap_accounts]
 }
 
 accounts_to_update = {
